@@ -14,12 +14,9 @@ def bot_bring(candy):
     max_turn = 28
     if max_turn > candy:
         max_turn = candy
-    if candy % (max_turn + 1) == 0:
-        bot_candy = max_turn
-    else:
-        bot_candy = candy - (candy // (max_turn + 1) * (max_turn + 1) + 1)
-        if bot_candy == 0:
-            bot_candy = randint(1, max_turn)
+    bot_candy = candy - (candy // (max_turn + 1) * (max_turn + 1))
+    if bot_candy == 0:
+        bot_candy = randint(1, max_turn)
     print(f'бот Сергей взял {bot_candy}')
     return candy - bot_candy
 
@@ -40,7 +37,7 @@ def bring_candy(candy, name):
 
 def check_win(candy, name):
     if candy == 0:
-        print(f'Игорок {name} проиграл!')
+        print(f'Игорок {name} победил!')
         return True
     return False
 
